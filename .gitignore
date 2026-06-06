@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+*.db
+.coverage
+coverage.xml
+htmlcov/
+
+# Node
+node_modules/
+dist/
+.eslintcache
+
+# Docker
+postgres_data/
+
+# IDE
+.idea/
+.vscode/
+*.swp
