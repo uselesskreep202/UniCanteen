@@ -3,7 +3,9 @@
     "allow": [
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit -m 'Initial commit: university canteen pre-order system *)"
+      "Bash(git commit -m 'Initial commit: university canteen pre-order system *)",
+      "Bash(git config *)",
+      "Bash(git commit *)"
     ]
   }
 }
