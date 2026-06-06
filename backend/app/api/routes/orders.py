@@ -66,7 +66,6 @@ def stats(_=Depends(require_admin), db: Session = Depends(get_db)):
 
 def _serialize_order(order):
     result = OrderOut.model_validate(order)
-    result.created_at = str(order.created_at)
     for i, item in enumerate(result.items):
         if order.items and i < len(order.items):
             item.dish_name = order.items[i].dish.name if order.items[i].dish else ""

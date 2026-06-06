@@ -49,7 +49,7 @@ export interface Order {
   status: OrderStatus;
   total_price: number;
   notes: string;
-  created_at: string;
+  created_at: string | null;
   items: OrderItem[];
   slot?: TimeSlot;
   user?: User;

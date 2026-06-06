@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from datetime import datetime
 from app.models.order import OrderStatus
 from app.schemas.user import UserOut
 
@@ -50,7 +51,7 @@ class OrderOut(BaseModel):
     status: OrderStatus
     total_price: float
     notes: str
-    created_at: str
+    created_at: Optional[datetime] = None
     items: List[OrderItemOut] = []
     slot: Optional[TimeSlotOut] = None
     user: Optional[UserOut] = None
