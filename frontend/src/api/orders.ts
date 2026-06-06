@@ -10,3 +10,4 @@ export const getAllOrders = (status?: string) => api.get<Order[]>("/orders/all",
 export const updateOrderStatus = (id: number, status: string) =>
   api.put<Order>(`/orders/${id}/status`, { status });
 export const getStats = () => api.get<Record<string, number>>("/orders/stats/summary");
+export const cancelOrder = (id: number) => api.delete<Order>(`/orders/${id}`);

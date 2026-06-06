@@ -59,6 +59,21 @@ def update_status(order_id: int, data: OrderStatusUpdate, db: Session = Depends(
     return _serialize_order(repo.update_status(order, data.status))
 
 
+@router.delete("/{order_id}", response_model=OrderOut)
+def cancel_own_order(order_id: int, db: Session = Depends(get_db), user=Depends(get_current_user)):
+    """Студент отменяет свой заказ (только если статус pending)."""
+    from app.models.order import OrderStatus
+    repo = OrderRepository(db)
+    order = repo.get_order(order_id)
+    if not order:
+        raise HTTPException(status_code=404, detail="Order not found")
+    if order.user_id != user.id:
+        raise HTTPException(status_code=403, detail="Forbidden")
+    if order.status != OrderStatus.PENDING:
+        raise HTTPException(status_code=400, detail="Можно отменить только заказ со статусом 'ожидает'")
+    return _serialize_order(repo.update_status(order, OrderStatus.CANCELLED))
+
+
 @router.get("/stats/summary")
 def stats(_=Depends(require_admin), db: Session = Depends(get_db)):
     return OrderService(db).get_stats()
