@@ -1,0 +1,47 @@
+name: CI
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+jobs:
+  backend:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: canteen_db
+          POSTGRES_USER: canteen_user
+          POSTGRES_PASSWORD: canteen_pass
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install
+        working-directory: backend
+        run: pip install -r requirements.txt
+      - name: Lint
+        working-directory: backend
+        run: ruff check .
+      - name: Test
+        working-directory: backend
+        env:
+          DATABASE_URL: postgresql://canteen_user:canteen_pass@localhost:5432/canteen_db
+        run: pytest --cov=app --cov-fail-under=60
+  frontend:
+    name: Frontend tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Install
+        working-directory: frontend
+        run: npm install
+      - name: Test
+        working-directory: frontend
+        run: npm test
