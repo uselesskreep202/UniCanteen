@@ -1,6 +1,6 @@
 # Диаграмма классов — UniCanteen
 
-```mermaid
+```
 classDiagram
     class User {
         +int id
@@ -143,8 +143,8 @@ classDiagram
     AuthService --> UserRepository : uses
     OrderService --> OrderRepository : uses
     OrderService --> MenuRepository : uses
-```
 
+```
 ## Описание классов
 
 ### Модели данных

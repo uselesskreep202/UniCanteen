@@ -69,7 +69,7 @@ for delta in range(3):
             order_repo.create_slot(date=day, time_start=start, time_end=end, max_orders=20)
 
 db.close()
-print("✅ БД заполнена тестовыми данными")
+print("   БД заполнена тестовыми данными")
 print("   admin@uni.ru / admin123")
 print("   staff@uni.ru / staff123")
 print("   student@uni.ru / student123")

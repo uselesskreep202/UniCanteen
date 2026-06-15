@@ -1,6 +1,6 @@
 # Диаграмма последовательностей — Оформление заказа
 
-```mermaid
+```
 sequenceDiagram
     actor Student as Студент
     participant FE as Frontend (React)

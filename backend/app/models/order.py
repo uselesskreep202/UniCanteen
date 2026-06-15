@@ -17,8 +17,8 @@ class TimeSlot(Base):
     __tablename__ = "time_slots"
 
     id = Column(Integer, primary_key=True, index=True)
-    date = Column(String, nullable=False)       # YYYY-MM-DD
-    time_start = Column(String, nullable=False) # HH:MM
+    date = Column(String, nullable=False)  
+    time_start = Column(String, nullable=False) 
     time_end = Column(String, nullable=False)
     max_orders = Column(Integer, default=20)
     current_orders = Column(Integer, default=0)

@@ -4,11 +4,11 @@
 
 | Имя | Роль |
 |-----|------|
-| Участник 1 | Backend Developer (FastAPI, PostgreSQL) |
-| Участник 2 | Frontend Developer (React, TypeScript) |
-| Участник 3 | QA Engineer (pytest, Vitest) |
-| Участник 4 | UI/UX Designer + Frontend |
-| Участник 5 | DevOps / Project Manager (CI/CD, Docker) |
+| Александр Булгаков | Backend Developer (FastAPI, PostgreSQL) |
+| Сергей Крылов | Frontend Developer (React, TypeScript) |
+| Егор Зеленков | QA Engineer (pytest, Vitest) |
+| Тимофей Ясонов | UI/UX Designer + Frontend |
+| Артём Маслеников | Project Manager (CI/CD, Docker) |
 
 ## Технологический стек
 
